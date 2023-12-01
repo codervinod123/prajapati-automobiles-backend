@@ -1,15 +1,15 @@
 import mongoose, { mongo } from "mongoose";
 import { DB_NAME } from "../constants.js";
 
-
 const connect_DB=async()=>{
+     console.log("Hello from backend connection")
      try {
-        const connectionInstance=mongoose.connect("mongodb+srv://vinodpvp9369:Msmmv@123@cluster0.qzzmt3a.mongodb.net/prajapatiautomobiles");
-        console.log("Connected succesfully d");
-     } catch (error) {
-          console.log(error);
-          process.exit(1);
-     }
+          const connectingInstance=await mongoose.connect(`${process.env.MONGO_URI}/${DB_NAME}`);
+          console.log("Connected successfully");
+      } catch (error) {
+            console.log(error)
+            process.exit(1);
+      }
 }
 
 export default connect_DB
