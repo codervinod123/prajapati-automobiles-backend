@@ -10,6 +10,12 @@ const app=express();
 const PORT =process.env.PORT || 3000;
 connect_DB()
 .then(()=>{
+
+    app.on("error",(error)=>{
+       console.log("Error occured",error);
+       throw error;
+    })
+
      app.listen(PORT,()=>{
          console.log(`Hello from index src ${PORT}`)
      })
