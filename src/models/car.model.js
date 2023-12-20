@@ -1,4 +1,5 @@
 import mongoose,{Schema} from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const carSchema=new Schema({
             
@@ -74,5 +75,6 @@ const carSchema=new Schema({
 )
 
 
+carSchema.plugin(mongooseAggregatePaginate);
 const Car=mongoose.model("Car",carSchema);
 export {Car};
